@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Finanzas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Bienvenido al Control de Finanzas</h1>
+  </header>
+
+  <main>
+    <!-- Sección de Bienvenida -->
+    <section id="welcome-section">
+      <p id="description-text">
+        Administra tus ingresos y egresos de forma eficiente y visualiza el crecimiento financiero de tu negocio.</p>
+      <!-- Contenedor de los botones (Se elimina el recuadro de fondo adicional) -->
+    <div class="buttons-container">
+      <a href="datos.html" class="button">Ver Datos</a>
+      <button onclick="showLogin()" class="button">Login</button>
+    </div>
+      
+      
+    </section>
+
+    <!-- Sección para Login de Administrador (Oculta al inicio) -->
+    <section id="login-section" style="display: none;">
+      <h2>Login de Administrador</h2>
+      <form id="login-form">
+        <h2>Login de Administrador</h2>
+        <label for="username">Usuario</label>
+        <input type="text" id="username" placeholder="Ingresa tu usuario">
+      
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Ingresa tu contraseña">
+      
+        <button type="submit">Iniciar Sesión</button>
+      
+        <!-- Botón Volver -->
+        <a href="index.html" class="button">Volver</a>
+      </form>
+      
+    </section>
+  </main>
+
+  <footer>
+    <p>Desarrollado con 💙 por Ti & ChatGPT</p>
+  </footer>
+  
+  <script>
+    function showLogin() {
+      document.getElementById('welcome-section').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+    }
+
+    function backToWelcome() {
+      document.getElementById('welcome-section').style.display = 'block';
+      document.getElementById('login-section').style.display = 'none';
+    }
+
+    // Lógica del formulario de inicio de sesión
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita el envío del formulario
+
+      // Credenciales ficticias (puedes conectar a Firebase más adelante)
+      const validUsername = "admin";
+      const validPassword = "12345";
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === validUsername && password === validPassword) {
+        window.location.href = "admin.html"; // Redirige a admin.html
+      } else {
+        alert("Usuario o contraseña incorrectos.");
+      }
+    });
+  </script>
+</body>
+</html>
+

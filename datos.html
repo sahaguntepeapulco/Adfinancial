@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Datos Financieros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Datos Financieros</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Ingresos</h2>
+      <table id="tabla-ingresos">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Categoría</th>
+            <th>Método de Pago</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los datos de ingresos se cargarán aquí -->
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Egresos</h2>
+      <table id="tabla-egresos">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Categoría</th>
+            <th>Método de Pago</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los datos de egresos se cargarán aquí -->
+        </tbody>
+      </table>
+    </section>
+
+    <a href="index.html" class="button">Volver</a>
+
+  </main>
+
+  <footer>
+    <p>Desarrollado con 💙 por Ti & ChatGPT</p>
+  </footer>
+
+  <!-- Firebase App (base) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoatX0s4J_jeueMDwPrgydvd992gjzcQ0",
+      authDomain: "finanzas-80857.firebaseapp.com",
+      projectId: "finanzas-80857",
+      storageBucket: "finanzas-80857.firebasestorage.app",
+      messagingSenderId: "57262760587",
+      appId: "1:57262760587:web:44548bdcc8263ee04a6a8e"
+    };
+
+    // Inicializa Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Función para cargar los ingresos desde Firestore
+    async function cargarIngresos() {
+      const ingresosCollection = collection(db, "ingresos");
+      const ingresosSnapshot = await getDocs(ingresosCollection);
+      const ingresosList = ingresosSnapshot.docs.map(doc => doc.data());
+
+      // Llena la tabla de ingresos
+      const tablaIngresos = document.getElementById('tabla-ingresos').getElementsByTagName('tbody')[0];
+      ingresosList.forEach(ingreso => {
+        const fila = tablaIngresos.insertRow();
+        fila.innerHTML = `
+          <td>${ingreso.fecha}</td>
+          <td>${ingreso.monto}</td>
+          <td>${ingreso.categoria}</td>
+          <td>${ingreso.metodo}</td>
+          <td>${ingreso.descripcion}</td>
+        `;
+      });
+    }
+
+    // Función para cargar los egresos desde Firestore
+    async function cargarEgresos() {
+      const egresosCollection = collection(db, "egresos");
+      const egresosSnapshot = await getDocs(egresosCollection);
+      const egresosList = egresosSnapshot.docs.map(doc => doc.data());
+
+      // Llena la tabla de egresos
+      const tablaEgresos = document.getElementById('tabla-egresos').getElementsByTagName('tbody')[0];
+      egresosList.forEach(egreso => {
+        const fila = tablaEgresos.insertRow();
+        fila.innerHTML = `
+          <td>${egreso.fecha}</td>
+          <td>${egreso.monto}</td>
+          <td>${egreso.categoria}</td>
+          <td>${egreso.metodo}</td>
+          <td>${egreso.descripcion}</td>
+        `;
+      });
+    }
+
+    // Llamamos a las funciones para cargar los datos
+    cargarIngresos();
+    cargarEgresos();
+  </script>
+</body>
+</html>
