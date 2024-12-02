@@ -1,0 +1,9 @@
+
+Mejoras Futuras:
+Autenticación con Firebase: Más adelante, podemos conectar este login a Firebase Authentication para gestionar usuarios reales.
+Seguridad: Actualmente, las credenciales están en el frontend. Firebase Authentication será más seguro para producción.
+
+¿Qué prefieres hacer ahora?
+Conectar el formulario de Ingresos.
+Conectar el formulario de Egresos.
+Crear una página para visualizar los datos.

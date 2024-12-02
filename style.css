@@ -1,0 +1,285 @@
+/* Estilos generales para el sitio */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}
+
+/* Ajustes para el cuerpo */
+main {
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+/* Formularios */
+/* Estilos generales del formulario */
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  background-color: #e7f4ff;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botones de formulario */
+form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para botones de navegación (Volver, Ver Datos, Login) */
+a.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para las tablas */
+table {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #f9f9f9;
+}
+
+tr:hover td {
+  background-color: #f1f1f1;
+}
+
+/* Estilo para el pie de página */
+footer {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Estilos para el contenedor de botones */
+.buttons {
+  display: flex;                  /* Alinear los botones horizontalmente */
+  justify-content: center;        /* Centrar los botones */
+  gap: 20px;                      /* Separación entre los botones */
+  padding: 20px;
+  background-color: #007bff;      /* Fondo azul del recuadro */
+  border-radius: 12px;            /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar relieve */
+  max-width: 400px;               /* Limitar el ancho máximo del contenedor */
+  margin: 40px auto;              /* Centrar el contenedor verticalmente */
+}
+
+/* Estilo para los botones */
+.button, .buttons button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #007bff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo al pasar el mouse sobre el botón */
+.button:hover, .buttons button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Estilo general para el formulario */
+form {
+  width: 100%;
+  max-width: 400px;               /* Ancho máximo del formulario */
+  margin: 80px auto;              /* Centrar el formulario verticalmente */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;            /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de enviar */
+form button[type="submit"] {
+  width: 100%;                    /* Que ocupe todo el ancho */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Botón Volver (como enlace estilizado) */
+form .button {
+  display: block;                 /* Que ocupe una nueva línea */
+  width: 100%;                    /* Que ocupe todo el ancho */
+  padding: 10px 20px;
+  text-align: center;             /* Centrar el texto */
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;          /* Eliminar el subrayado */
+  border-radius: 8px;
+  margin-top: 10px;               /* Separación del botón superior */
+  transition: background-color 0.3s ease;
+}
+
+form .button:hover {
+  background-color: #0056b3;
+}
+
+/* Botón Volver Estilizado */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;      /* Azul */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;          /* Sin subrayado */
+  border-radius: 8px;             /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #0056b3;      /* Azul más oscuro al pasar el ratón */
+}
+
+/* Centrar el botón en la página */
+main .button {
+  display: inline-block;
+  text-align: center;
+  margin: 20px auto;
+}
+
+/* Estilo del texto de descripción */
+#description-text {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+  padding: 0 20px; /* Para un poco de espacio lateral */
+}
+
+/* Contenedor de los botones */
+.buttons-container {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 20px; /* Espacio entre los botones */
+  margin-top: 10px;
+}
+
+/* Botones estilizados */
+.button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Azul */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilización específica para el botón dentro del formulario */
+#login-form .button {
+  margin-top: 20px;
+}

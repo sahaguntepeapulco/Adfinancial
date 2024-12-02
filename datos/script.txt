@@ -1,0 +1,32 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAoatX0s4J_jeueMDwPrgydvd992gjzcQ0",
+    authDomain: "finanzas-80857.firebaseapp.com",
+    projectId: "finanzas-80857",
+    storageBucket: "finanzas-80857.firebasestorage.app",
+    messagingSenderId: "57262760587",
+    appId: "1:57262760587:web:44548bdcc8263ee04a6a8e"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
+
+
+REGLAS:
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

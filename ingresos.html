@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Ingreso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Registrar Ingreso</h1>
+  </header>
+
+  <main>
+    <form id="ingreso-form">
+      <label for="fecha">Fecha de Ingreso:</label>
+      <input type="date" id="fecha" required>
+
+      <label for="monto">Monto de Ingreso:</label>
+      <input type="number" id="monto" step="0.01" required>
+
+      <label for="categoria">Categoría de Ingreso:</label>
+      <select id="categoria" required>
+        <option value="Ventas">Ventas</option>
+        <option value="Servicios">Servicios</option>
+        <option value="Otros">Otros</option>
+      </select>
+
+      <label for="metodo">Método de Pago:</label>
+      <select id="metodo" required>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+        <option value="Transferencia">Transferencia</option>
+      </select>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" rows="3"></textarea>
+
+      <button type="submit">Guardar Ingreso</button>
+    </form>
+    <a href="admin.html" class="button">Volver</a>
+  </main>
+
+  <footer>
+    <p>Desarrollado con 💙 por Ti & ChatGPT</p>
+  </footer>
+
+  <!-- Firebase App (base) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAoatX0s4J_jeueMDwPrgydvd992gjzcQ0",
+      authDomain: "finanzas-80857.firebaseapp.com",
+      projectId: "finanzas-80857",
+      storageBucket: "finanzas-80857.firebasestorage.app",
+      messagingSenderId: "57262760587",
+      appId: "1:57262760587:web:44548bdcc8263ee04a6a8e"
+    };
+
+    // Inicializa Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Escucha el evento submit del formulario
+    document.getElementById('ingreso-form').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+      // Captura los valores del formulario
+      const fecha = document.getElementById('fecha').value;
+      const monto = parseFloat(document.getElementById('monto').value);
+      const categoria = document.getElementById('categoria').value;
+      const metodo = document.getElementById('metodo').value;
+      const descripcion = document.getElementById('descripcion').value;
+
+      try {
+        // Agrega el ingreso a Firestore
+        const docRef = await addDoc(collection(db, "ingresos"), {
+          fecha: fecha,
+          monto: monto,
+          categoria: categoria,
+          metodo: metodo,
+          descripcion: descripcion
+        });
+        alert("Ingreso registrado con éxito. ID: " + docRef.id);
+
+        // Limpia el formulario
+        document.getElementById('ingreso-form').reset();
+      } catch (e) {
+        console.error("Error al agregar ingreso: ", e);
+        alert("Error al registrar el ingreso. Inténtalo de nuevo.");
+      }
+    });
+  </script>
+</body>
+</html>
