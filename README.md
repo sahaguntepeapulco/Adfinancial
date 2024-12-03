@@ -107,6 +107,8 @@ en caso de accidente.
 12. Retiro al Término del Proyecto
 Cada integrante podrá retirarse 
 al finalizar cada proyecto.
+cada proyecto se considera 
+de manera semestral.
 
 13. Recuperación de Inversión 
 y Utilidades
