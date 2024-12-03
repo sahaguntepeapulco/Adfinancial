@@ -1,19 +1,17 @@
 # Adfinancial
 1. Sugerencias de Negocios
-Cada emprendedor podrá presentar su 
-idea de negocio. Las ideas serán 
-evaluadas en función del sector y 
-la inversión necesaria, 
-para elegir la más adecuada con la 
-aprobación de todos los integrantes 
-del proyecto.
+Cada emprendedor podrá presentar su idea de negocio. 
+Las ideas serán evaluadas en función del sector y la inversión necesaria, para elegir la más adecuada con la aprobación de todos los integrantes del proyecto.
 
 2. Inversión (Emprendedores)
-Todos los emprendedores deberán 
-aportar una inversión igual para 
-ser considerados en el proyecto. 
-La participación en la inversión 
-será obligatoria para todos los 
+Todos los emprendedores deberán
+aportar una inversión igual,
+en una sola exivision y en tiempo
+y forma, para no atrasar el
+proyecto y ser considerados en
+el mismo.
+La participación en la inversión
+será obligatoria para todos los
 integrantes.
 
 3. Puesto de Cada Emprendedor
