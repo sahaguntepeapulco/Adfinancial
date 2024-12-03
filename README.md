@@ -117,9 +117,9 @@ recibirá su inversión inicial
 más su parte proporcional de las 
 utilidades.
 
-14. División de Inversión
-La inversión total será dividida 
-proporcionalmente entre los 
+14. División de utilidades
+Las utilidades seran  divididas
+proporcionalmente entre los
 participantes de cada proyecto.
 
 15. Toma de Decisiones
