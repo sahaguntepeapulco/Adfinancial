@@ -16,7 +16,7 @@
     <!-- Sección de Bienvenida -->
     <section id="welcome-section">
       <p id="description-text">
-        Administrador de ingresos y egresos y visualizador de crecimiento financiero de nuestro negocio.</p>
+        Administra tus ingresos y egresos de forma eficiente y visualiza el crecimiento financiero de tu negocio.</p>
       <!-- Contenedor de los botones (Se elimina el recuadro de fondo adicional) -->
     <div class="buttons-container">
       <a href="datos.html" class="button">Ver Datos</a>
@@ -28,25 +28,29 @@
 
     <!-- Sección para Login de Administrador (Oculta al inicio) -->
     <section id="login-section" style="display: none;">
+      <h2>Login de Administrador</h2>
+      <!-- Formulario de Login -->
       <form id="login-form">
         <h2>Login de Administrador</h2>
         <label for="username">Usuario</label>
         <input type="text" id="username" placeholder="Ingresa tu usuario">
-      
+
         <label for="password">Contraseña</label>
         <input type="password" id="password" placeholder="Ingresa tu contraseña">
-      
+
+  <!-- Botón "Iniciar Sesión" -->
         <button type="submit">Iniciar Sesión</button>
-      
-        <!-- Botón Volver -->
-        <a href="index.html" class="button">Volver</a>
+
+  <!-- Botón "Volver" (cambiado de <a> a <button>) -->
+        <button type="button" class="volver-button" onclick="window.location.href='index.html'">Volver</button>
       </form>
+
       
     </section>
   </main>
 
   <footer>
-    <p>Desarrollado con 💙 para Ti </p>
+    <p>Desarrollado con 💙 por Ti & ChatGPT</p>
   </footer>
   
   <script>
