@@ -1,11 +1,11 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
-
-  // Función para mostrar la sección de datos
+  
+  // Función para mostrar la sección de datos (después del login exitoso)
   function showReadOnlyData() {
     document.getElementById('welcome-section').style.display = 'none';
     document.getElementById('data-section').style.display = 'block';
-    loadFinancialData(); // Cargar datos en la tabla
+    loadFinancialData(); // Cargar datos en las tablas
   }
 
   // Función para mostrar la sección de login
@@ -14,22 +14,27 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('login-section').style.display = 'block';
   }
 
-  // Función para volver a la bienvenida
+  // Función para volver a la sección de bienvenida
   function backToWelcome() {
     document.getElementById('data-section').style.display = 'none';
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('welcome-section').style.display = 'block';
   }
 
-  // Función para cargar los datos financieros
+  // Función para formatear el monto con símbolo de moneda ($)
+  function formatearMoneda(valor) {
+    return `$${parseFloat(valor).toFixed(2)}`; // Convierte el número a formato $0.00
+  }
+
+  // Función para cargar los datos financieros desde Firebase
   function loadFinancialData() {
-    // Obtener la referencia a la tabla de datos
+    // Obtener la referencia al contenedor de la tabla
     const dataTable = document.getElementById('data-table');
 
-    // Limpiar la tabla antes de cargar los datos
+    // Limpiar la tabla antes de cargar nuevos datos
     dataTable.innerHTML = '';
 
-    // Obtener los ingresos desde Firebase
+    // Obtener y cargar los datos de ingresos desde Firebase
     db.collection("ingresos").get().then((querySnapshot) => {
       let ingresosHTML = `
         <h3>Ingresos</h3>
@@ -41,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ingresosHTML += `
           <tr>
             <td>${data.fecha}</td>
-            <td>$${data.monto}</td>
+            <td>${formatearMoneda(data.monto)}</td> <!-- Monto con símbolo $ -->
             <td>${data.categoria}</td>
             <td>${data.metodoPago}</td>
             <td>${data.descripcion}</td>
@@ -50,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
       ingresosHTML += `</table>`;
 
-      // Cargar los egresos
+      // Obtener y cargar los datos de egresos desde Firebase
       db.collection("egresos").get().then((querySnapshot) => {
         let egresosHTML = `
           <h3>Egresos</h3>
@@ -62,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
           egresosHTML += `
             <tr>
               <td>${data.fecha}</td>
-              <td>$${data.monto}</td>
+              <td>${formatearMoneda(data.monto)}</td> <!-- Monto con símbolo $ -->
               <td>${data.categoria}</td>
               <td>${data.metodoPago}</td>
               <td>${data.descripcion}</td>
@@ -71,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         egresosHTML += `</table>`;
 
-        // Agregar los datos a la tabla
+        // Mostrar los datos combinados en el contenedor de la tabla
         dataTable.innerHTML = ingresosHTML + egresosHTML;
       });
     });
   }
 
-  // Lógica para el formulario de login
+  // Lógica del formulario de login
   document.getElementById('login-form').addEventListener('submit', function (event) {
     event.preventDefault();
     const username = document.getElementById('username').value;
@@ -85,13 +90,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (username === 'admin' && password === '12345') {
       alert('¡Acceso concedido!');
-      showReadOnlyData();  // Mostrar los datos al iniciar sesión
+      showReadOnlyData();  // Mostrar los datos financieros
     } else {
       alert('Usuario o contraseña incorrectos');
     }
   });
 
-  // Configuración de Firebase (obtén estos datos desde tu consola de Firebase)
+  // Configuración de Firebase (obtener los datos desde Firebase Console)
   const firebaseConfig = {
     apiKey: "TU_API_KEY",
     authDomain: "TU_AUTH_DOMAIN",
@@ -106,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 
-  // Función para agregar ingreso
+  // Función para agregar un ingreso a Firebase
   document.getElementById('ingresos-form')?.addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -116,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const metodoPago = document.getElementById('metodoPagoIngreso').value;
     const descripcion = document.getElementById('descripcionIngreso').value;
 
-    // Agregar ingreso a Firestore
     db.collection("ingresos").add({
       fecha: fecha,
       monto: monto,
@@ -125,17 +129,13 @@ document.addEventListener("DOMContentLoaded", function() {
       descripcion: descripcion,
     })
     .then(() => {
-      console.log("Ingreso registrado correctamente.");
       alert("Ingreso registrado.");
       document.getElementById('ingresos-form').reset(); // Limpiar el formulario
       loadFinancialData();  // Recargar los datos
-    })
-    .catch((error) => {
-      console.error("Error al agregar el ingreso: ", error);
     });
   });
 
-  // Función para agregar egreso
+  // Función para agregar un egreso a Firebase
   document.getElementById('egresos-form')?.addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const metodoPago = document.getElementById('metodoPagoEgreso').value;
     const descripcion = document.getElementById('descripcionEgreso').value;
 
-    // Agregar egreso a Firestore
     db.collection("egresos").add({
       fecha: fecha,
       monto: monto,
@@ -154,13 +153,9 @@ document.addEventListener("DOMContentLoaded", function() {
       descripcion: descripcion,
     })
     .then(() => {
-      console.log("Egreso registrado correctamente.");
       alert("Egreso registrado.");
       document.getElementById('egresos-form').reset(); // Limpiar el formulario
       loadFinancialData();  // Recargar los datos
-    })
-    .catch((error) => {
-      console.error("Error al agregar el egreso: ", error);
     });
   });
 });
