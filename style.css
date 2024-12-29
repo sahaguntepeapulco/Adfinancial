@@ -19,10 +19,12 @@ main {
   padding: 20px;
 }
 
+/* === FORMULARIOS === */
+
 /* Contenedor general del formulario */
 form {
   width: 100%;
-  max-width: 320px; /* Hacemos el formulario más estrecho */
+  max-width: 320px; /* Ajusta el ancho máximo del formulario */
   margin: 20px auto; /* Centrar el formulario horizontalmente y dar separación superior */
   padding: 20px;
   background-color: #fff;
@@ -84,8 +86,6 @@ form .volver-button:hover {
   background-color: #5a6268; /* Gris más oscuro al pasar el ratón */
 }
 
-
-
 /* Botón principal */
 .btn {
   display: inline-block;
@@ -123,7 +123,6 @@ form .volver-button:hover {
   text-align: center;
   margin-top: 20px;
 }
-
 
 /* === BOTONES DE NAVEGACIÓN === */
 
@@ -178,9 +177,6 @@ form .volver-button:hover {
   background-color: #0056b3;   /* Azul más oscuro al pasar el ratón */
 }
 
-
-
-
 /* === SECCIÓN DE BIENVENIDA === */
 
 /* Contenedor de bienvenida */
@@ -193,7 +189,11 @@ form .volver-button:hover {
   font-size: 18px;
   color: #007bff;
   margin-bottom: 20px;
-  padding: 0 20px; /* Espaciado lateral */
+  padding: 10px 20px; /* Espaciado lateral */
+  background-color: white; /* Fondo blanco */
+  border: 2px solid #007bff; /* Contorno azul */
+  border-radius: 8px; /* Bordes redondeados */
+  display: inline-block;
 }
 
 /* Botones en la sección de bienvenida */
@@ -258,28 +258,6 @@ section h2 {
   margin-bottom: 10px;
 }
 
-/* Botón Volver */
-.volver-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.btn-volver {
-  padding: 5px 10px;
-  font-size: 14px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-volver:hover {
-  background-color: #0056b3;
-}
-
-
 /* === PIE DE PÁGINA === */
 footer {
   margin-top: 20px;
@@ -295,4 +273,3 @@ footer p {
   font-size: 14px;
   text-align: center;
 }
-
