@@ -12,34 +12,55 @@
   </header>
 
   <main>
-    <form id="ingreso-form">
-      <label for="fecha">Fecha de Ingreso:</label>
-      <input type="date" id="fecha" required>
+    <form id="ingreso-form" class="form-container">
+      <!-- Fecha de Ingreso -->
+      <div class="form-group">
+        <label for="fecha">Fecha de Ingreso:</label>
+        <input type="date" id="fecha" class="input-field" required>
+      </div>
 
-      <label for="monto">Monto de Ingreso:</label>
-      <input type="number" id="monto" step="0.01" required>
+      <!-- Monto de Ingreso -->
+      <div class="form-group">
+        <label for="monto">Monto de Ingreso:</label>
+        <input type="number" id="monto" class="input-field" step="0.01" placeholder="Ingrese el monto" required>
+      </div>
 
-      <label for="categoria">Categoría de Ingreso:</label>
-      <select id="categoria" required>
-        <option value="Ventas">Ventas</option>
-        <option value="Servicios">Servicios</option>
-        <option value="Otros">Otros</option>
-      </select>
+      <!-- Categoría de Ingreso -->
+      <div class="form-group">
+        <label for="categoria">Categoría de Ingreso:</label>
+        <select id="categoria" class="input-field" required>
+          <option value="Ventas">Ventas</option>
+          <option value="Servicios">Servicios</option>
+          <option value="Otros">Otros</option>
+        </select>
+      </div>
 
-      <label for="metodo">Método de Pago:</label>
-      <select id="metodo" required>
-        <option value="Efectivo">Efectivo</option>
-        <option value="Tarjeta">Tarjeta</option>
-        <option value="Transferencia">Transferencia</option>
-      </select>
+      <!-- Método de Pago -->
+      <div class="form-group">
+        <label for="metodo">Método de Pago:</label>
+        <select id="metodo" class="input-field" required>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Tarjeta">Tarjeta</option>
+          <option value="Transferencia">Transferencia</option>
+        </select>
+      </div>
 
-      <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" rows="3"></textarea>
+      <!-- Descripción -->
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" class="input-field" rows="3" placeholder="Ingrese una descripción"></textarea>
+      </div>
 
-      <button type="submit">Guardar Ingreso</button>
+      <!-- Botón Guardar -->
+      <button type="submit" class="btn btn-primary">Guardar Ingreso</button>
     </form>
-    <a href="admin.html" class="button">Volver</a>
-  </main>
+
+    <!-- Botón Volver -->
+    <div class="volver-container">
+      <a href="admin.html" class="btn btn-volver">Volver</a>
+    </div>
+</main>
+
 
   <footer>
     <p>Desarrollado con 💙 por Ti & ChatGPT</p>

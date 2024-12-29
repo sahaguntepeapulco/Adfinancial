@@ -12,20 +12,23 @@
   </header>
 
   <main>
-    <form id="egreso-form">
+    <form id="egreso-form" class="form-container">
+      <!-- Fecha de Egreso -->
       <div class="form-group">
         <label for="fecha">Fecha de Egreso:</label>
-        <input type="date" id="fecha" required>
+        <input type="date" id="fecha" class="input-field" required>
       </div>
 
+      <!-- Monto de Egreso -->
       <div class="form-group">
         <label for="monto">Monto de Egreso:</label>
-        <input type="number" id="monto" step="0.01" required>
+        <input type="number" id="monto" class="input-field" step="0.01" placeholder="Ingrese el monto" required>
       </div>
 
+      <!-- Categoría de Egreso -->
       <div class="form-group">
         <label for="categoria">Categoría de Egreso:</label>
-        <select id="categoria" required>
+        <select id="categoria" class="input-field" required>
           <option value="Mercancía">Mercancía</option>
           <option value="Alquiler">Alquiler</option>
           <option value="Servicios">Servicios</option>
@@ -34,23 +37,30 @@
         </select>
       </div>
 
+      <!-- Método de Pago -->
       <div class="form-group">
         <label for="metodo">Método de Pago:</label>
-        <select id="metodo" required>
+        <select id="metodo" class="input-field" required>
           <option value="Efectivo">Efectivo</option>
           <option value="Tarjeta">Tarjeta</option>
           <option value="Transferencia">Transferencia</option>
         </select>
       </div>
 
+      <!-- Descripción -->
       <div class="form-group">
         <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" rows="3"></textarea>
+        <textarea id="descripcion" class="input-field" rows="3" placeholder="Ingrese una descripción"></textarea>
       </div>
 
-      <button type="submit">Guardar Egreso</button>
+      <!-- Botón Guardar -->
+      <button type="submit" class="btn btn-primary">Guardar Egreso</button>
     </form>
-    <a href="admin.html" class="button">Volver</a>
+
+    <!-- Botón Volver -->
+    <div class="volver-container">
+      <a href="admin.html" class="btn btn-volver">Volver</a>
+    </div>
   </main>
 
   <footer>
